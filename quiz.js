@@ -105,7 +105,7 @@ function calculateScore() {
     if(userAnswers === questions[index].a)finalScore++
 
   });
-  score.innerHTML = `${finalScore} / ${questions.length}`
+  score.innerHTML = `${finalScore}  / ${questions.length}`
 }
 
 function disableAllOption(){
