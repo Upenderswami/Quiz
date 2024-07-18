@@ -81,12 +81,13 @@ body {
     pointer-events: none !important;
 }
 .timer {
+    margin-bottom: 50px;
+    float: right;
     border-radius: 50%;
-    position: absolute;
     background-color: brown;
     color: white;
-    padding: 12px 10px;
-    top: 185px;
-    right: 301px;
+    padding: 10px 17px;
+   height: 50px;
+   width: 50px;
     font-size: 29px;
 }

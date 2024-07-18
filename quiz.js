@@ -21,7 +21,7 @@ const questions = [
   }
 ]
 const userAnswers = [];
-
+const randomOder = getRandomOder()
 const questionDiv = document.querySelector(".questions")
 const timerDiv = document.querySelector(".timer")
 const quizDiv = document.querySelector("#quiz")
@@ -72,7 +72,7 @@ id1 = setInterval(() => {
 }, 5000)
 
 function printQuestion() {
-  questionDiv.innerHTML = questions[count].q;
+  questionDiv.innerHTML =`Q${count + 1}. ${questions[randomOder[count]].q}`   ;
   paragraphs.forEach((para, index) => {
     para.innerHTML = questions[count].opt[index]
   });
@@ -102,7 +102,7 @@ function chekUserAnswer() {
 function calculateScore() {
   let finalScore = 0
   userAnswers.forEach((userAnswers, index) => {
-    if(userAnswers === questions[index].a)finalScore++
+    if(userAnswers === questions[randomOder[index]].a)finalScore++
 
   });
   score.innerHTML = `${finalScore}  / ${questions.length}`
@@ -118,4 +118,16 @@ function enbleAllOptions(){
 paragraphs.forEach((para)=>{
   para.classList.remove("pointer-none")
 })
+}
+function getRandomOder(){
+  let temp = [];
+  for (let i = 0; i < questions.length; i++)
+  {
+    const randomValue = Math.floor(Math.random() * questions.length)
+    if(temp.includes(randomValue)) return getRandomOder()
+      else{
+   temp.push(randomValue)
+  }
+  }
+  return temp
 }
